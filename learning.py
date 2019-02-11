@@ -47,5 +47,5 @@ if __name__ == "__main__":
     dirpath = subdir(learning_type)
     print(dirpath)
     filepath = new_file_path(dirpath)
-    subprocess.call(['vim', filepath])
+    subprocess.call(['vim', filepath + ".md"])
     print("Finished editing {} learning".format(learning_type))
