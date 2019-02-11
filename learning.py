@@ -15,17 +15,18 @@ for each in learning_types:
 
 def new_file_path(path):
     all_paths = os.listdir(path)
-    all_paths = [p for p in all_paths if os.path.isfile(os.path.join(path, p))]
+    all_paths = [p.split('.')[0] for p in all_paths if os.path.isfile(os.path.join(path, p))]
     if not len(all_paths):
         return "Learning_0"
     path_nums = [int(re.findall('\d+$', e)[0]) for e in all_paths
                 if len(re.findall('\d+$', e)) > 0] + [0]
     curr_num = max(path_nums)
     fname = "Learning_{}".format(curr_num)
-    lcount = sum(1 for line in open(fname)) 
+    lcount = sum(1 for line in open(fname + '.md')) 
     if lcount > 500:
         return "Learning_{}".format(curr_num + 1)
     else:
+        print("Editing existing file with {} lines existing".format(lcount))
         return fname
     
 
@@ -45,7 +46,6 @@ if __name__ == "__main__":
         sys.exit()
     learning_type = sys.argv[1]
     dirpath = subdir(learning_type)
-    print(dirpath)
     filepath = new_file_path(dirpath)
     subprocess.call(['vim', filepath + ".md"])
     print("Finished editing {} learning".format(learning_type))
