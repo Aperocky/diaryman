@@ -6,7 +6,6 @@ cd $DIARY_DIR;
 # Get current date
 year=$(date +%Y);
 month=$(date +%m);
-day=$(date +%d);
 
 # Create folders if they don't exist.
 if [[ ! -d $year ]]; then
