@@ -28,7 +28,7 @@ datename=$(date +%F)
 if [[ ! -f "$datename.md" ]]; then
     touch "$datename.md";
     echo "## $datename, $(date +%A)" >> "$datename.md";
-    vim "$datename.md";
-else
-    vim "$datename.md";
 fi
+
+vim "$datename.md";
+
