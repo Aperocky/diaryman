@@ -1,7 +1,7 @@
 ## diaryman
 
-Diary Manager. I've deduced the lack of diary is because of hussle required to create a file each day. With this diaryman, a simple alias would create the file in the correct place while opening it for editing with the best editor ever.
+Diary Manager for lazy software engineers who use vim.
 
-## Learning
+`diaryman` automatically creates a file in specified diary directory if it doesn't exist: `$DIARY_DIR/$year/$month/$day.md` and opens it with `vim` in edit mode. If the file already exist, it will just open it, this allow multiple edits throughout the day.
 
-Depositing learnings to a repository with a simple command e.g. `learn python`. Organized into 500 line md files, automatically.
+This works great for personal diaries and also for work task organization.
