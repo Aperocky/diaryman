@@ -38,7 +38,7 @@ if [[ -n "$1" ]]; then
             -name "*.md" \
             -print0 \
             | xargs -0 grep -HiE ".*$2.*" --color=always \
-            | awk -F: '{printf("%s -> %s\n", $1, $2)}'
+            | awk -F".md:" '{printf("%s.md -> %s\n", $1, $2)}'
         exit 0;
     fi
 
