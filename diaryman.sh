@@ -33,7 +33,6 @@ if [[ -n "$1" ]]; then
 
         # Use find command to search all diaries for the string
         # Print the filename and line containing the string
-
         find "$DIARY_DIR" \
             -type f \
             -name "*.md" \
