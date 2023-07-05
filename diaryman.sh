@@ -44,15 +44,15 @@ if [[ -n "$1" ]]; then
 
     # Allowing retroactive diary entries with $ diary Y-m-d
     # Validate date format
-    date -jf %Y-%m-%d $1 > /dev/null 2>&1;
+    date -d "$1" > /dev/null 2>&1;
     if [ "$?" -ne "0" ]; then
         echo "Date is not formatted correctly";
         exit 1;
     fi
-    year=$(date -jf %Y-%m-%d "$1" +%Y);
-    month=$(date -jf %Y-%m-%d "$1" +%m);
+    year=$(date -d "$1" +%Y);
+    month=$(date -d "$1" +%m);
     datename=$1;
-    weekday=$(date -jf %Y-%m-%d "$1" +%A);
+    weekday=$(date -d "$1" +%A);
 else
     # By default, if there are no argument, it creates/open the current days' file.
     year=$(date +%Y);
